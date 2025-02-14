@@ -1,0 +1,426 @@
+# CSV-File created with merge-csv.com
+# -----------------------------------------------------------
+
+Caucasus Barometer time-series dataset Georgia
+FAIRTRT: People are treated fairly by the government?
+"Question text: Under the present government in Georgia, do you completely agree, somewhat agree, somewhat disagree, or completely disagree that people like yourself are treated fairly by the government?",
+Note: The variable was recoded from 4-point scale into 2-point scale.
+Time-series (%),Agree,Disagree,DK,RA
+2008,40,43,17,1
+2009,35,49,14,2
+2010,44,43,12,2
+2011,49,33,15,3
+2012,49,22,28,2
+2013,50,34,15,1
+2015,31,54,14,1
+2017,42,47,10,1
+2019,35,55,9,1
+2021,33,54,11,2
+2024,42,45,12,1
+TRUNGOS: Trust towards NGOs
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - NGOs",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,17,25,35,23
+2009,15,34,28,24
+2010,13,30,30,28
+2011,15,29,22,35
+2012,9,33,27,31
+2013,15,41,23,21
+2015,21,42,23,14
+2017,23,39,23,15
+2019,25,40,20,16
+2021,23,43,21,13
+2024,32,32,22,14
+TRUMEDI: Trust towards Media
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Media",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,16,28,50,6
+2009,13,40,39,7
+2010,14,41,36,8
+2011,14,41,33,12
+2012,14,51,23,12
+2013,12,55,24,9
+2015,16,54,22,8
+2017,14,56,24,6
+2019,22,50,20,8
+2021,25,55,14,5
+2024,36,35,24,6
+TRULOCG: Trust towards Local government
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Local government",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2009,20,37,36,8
+2010,16,30,45,8
+2011,14,33,43,10
+2012,17,41,30,13
+2013,18,46,28,7
+2015,27,39,25,8
+2017,26,37,32,5
+2019,31,36,28,5
+2021,32,37,26,5
+2024,30,27,38,5
+TRUHLTH: Trust towards Healthcare system
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Healthcare system",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,14,20,62,4
+2009,19,31,44,5
+2010,12,33,52,3
+2011,15,37,44,4
+2012,16,38,39,7
+2013,13,40,44,3
+2015,10,33,55,3
+2017,15,35,49,2
+2019,21,34,43,2
+2021,21,36,39,4
+2024,26,24,48,2
+TRUEXEC: Trust towards Executive government
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Executive government (Prime minister and ministers)",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,29,30,31,11
+2009,24,34,31,10
+2010,18,32,41,10
+2011,17,30,39,14
+2012,7,27,49,17
+2013,14,40,39,7
+2015,31,39,20,10
+2017,30,37,26,7
+2019,40,32,21,7
+2021,38,38,19,5
+2024,40,24,30,6
+TRUEDUC: Trust towards Educational system
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Educational system",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,15,20,56,9
+2009,15,28,48,9
+2010,9,24,58,9
+2011,10,24,54,12
+2012,10,31,44,15
+2013,7,31,55,8
+2015,10,32,45,13
+2017,17,35,43,4
+2019,21,33,42,4
+2021,26,35,34,5
+2024,27,24,46,3
+TRUCRTS: Trust towards Courts
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Court system",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,29,28,28,15
+2009,28,32,26,15
+2010,18,30,29,23
+2011,20,23,31,25
+2012,27,28,18,26
+2013,19,39,22,20
+2015,23,37,24,15
+2017,27,36,24,13
+2019,36,33,17,13
+2021,37,34,18,11
+2024,33,29,23,14
+TRUBANK: Trust towards Banks
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Banks",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,15,21,54,11
+2009,13,30,45,12
+2010,10,24,49,17
+2011,15,25,46,14
+2012,20,27,38,15
+2013,22,32,35,11
+2015,34,31,27,8
+2017,36,32,26,6
+2019,37,31,25,6
+2021,41,36,17,6
+2024,40,27,28,5
+TRUARMY: Trust towards Army
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Army",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,8,12,75,6
+2009,4,19,71,5
+2010,3,12,80,5
+2011,4,13,77,6
+2012,5,17,68,10
+2013,4,18,72,6
+2015,4,17,74,5
+2017,6,16,75,4
+2019,6,18,73,2
+2021,6,20,72,3
+2024,7,14,76,3
+RATEHAP: How happy would you say you are?
+"Question text: Overall, how happy would you say you are? Please use this CARD, where code 1 means 'Very unhappy' and code '10' means 'Very happy' please choose any number between 1 and 10, which best reflects your situation.",
+"Note: The variable was recoded from 10-point scale into 3-point scale. Options 1-4 were grouped to 1, 5,6 to 2, 7-10 to 3."
+Time-series (%),Unhappy,In the middle,Happy,DK/RA
+2010,16,30,51,3
+2011,12,30,55,3
+2012,12,32,54,2
+2013,13,25,60,2
+2015,13,32,54,1
+2017,7,27,65,0
+2019,8,27,64,0
+2024,10,24,66,0
+LIFESAT: Overall life satisfaction
+"Question text: All things considered, how satisfied are you with your own life as a whole nowadays? Please use this CARD, where 1 means 'Not satisfied at all' and '10' means 'Completely satisfied.'",
+"Note: The variable was recoded from 10-point scale into 3-point scale. Options 1-4 were grouped to 1, 5,6 to 2, 7-10 to 3."
+Time-series (%),Not satisfied,Neutral,Satisfied,DK/RA
+2010,34,32,32,2
+2011,25,38,35,1
+2012,29,37,31,3
+2013,29,37,33,2
+2015,38,36,26,0
+2021,19,36,43,2
+2024,12,35,52,1
+FATEINLF: Perception of life
+"Question text: Please tell me which comes closest to your view on this CARD, where 1 means 'Everything in life is determined by fate' and '10' means 'People shape their fate themselves'.",
+"Note: The variable was recoded from 10-point scale into 3-point scale. Options 1-4 were grouped to 1, 5,6 to 2, 7-10 to 3."
+Time-series (%),Everything in life is determined by fate,Neutral,People shape their fate themselves,DK/RA
+2011,22,31,36,11
+2012,31,25,34,10
+2013,28,29,39,5
+2015,33,25,40,2
+2017,30,26,43,1
+2019,26,30,42,2
+2021,21,33,42,4
+2024,27,25,46,2
+PARTYSUPP: Which political party is closest to you?
+Question text: There are a number of political parties in Georgia. Which political party is closest to you?,
+Note: The question was recoded. Opposition parties were grouped together.
+Time-series (%),Opposition parties,Ruling party,There is no such party,DK,RA
+2019,26,21,36,6,11
+2021,31,24,24,4,18
+2024,19,21,31,8,22
+CNTPROS: Situation in Georgia will never improve vs everything will be fine in Georgia
+Question text: Situation in Georgia will never improve vs everything will be fine in Georgia,
+"Note: The question was recoded. Original options are as follows: 1. Situation in Georgia will never improve - Strongly agree 2. Situation in Georgia will never improve - Agree 3. Eventually, everything will be fine in Georgia - Agree 4. Eventually, everything will be fine in Georgia - Strongly agree 5. Agree with neither, 6 Agree with both (from 2024). Options 1 and 2 were grouped to Situation in Georgia will never improve, 3 and 4 to Eventually, everything will be fine in Georgia, 5 and 6 to DK/RA."
+Time-series (%),Situation in Georgia will never improve,"Eventually, everything will be fine in Georgia",DK/RA
+2017,23,68,9
+2019,22,69,8
+2021,18,73,9
+2024,17,75,8
+USSRDISS: Was the dissolution of the Soviet Union a good thing or a bad thing for Georgia?
+"Question text: In your opinion, was the dissolution of the Soviet Union a good thing or a bad thing for Georgia?",
+Time-series (%),A good thing,A bad thing,DK,RA
+2019,41,42,16,1
+2021,47,38,14,1
+2024,57,23,19,1
+EEUSUPNA: To what extent would you support Georgia's membership in the Eurasian Economic Union led by the Russian Federation?
+"Question text: Using a scale of 1 to 5, where code 1 means no support and code 5 means your full support, to what extent would you support Georgia's membership in the Eurasian Economic Union led by the Russian Federation?",
+Note: The variable is rocded from 5-point scale into 3-point scale. Before 2017 there was not specified that the union was led by Russia. 
+Time-series (%),Don’t support,"Partially support, partially don’t support",Support,DK/RA
+2013,24,17,32,27
+2015,35,24,21,21
+2017,39,24,19,18
+2021,48,19,13,20
+2024,69,10,7,15
+NATOSUPP: Support of Georgia's membership in NATO
+"Question text: Using a scale of 1 to 5, where code 1 means no support and code 5 means your full support, to what extent would you support Georgia's membership in NATO?",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Don't support,Equally support and don't support,Support,DK/RA
+2009,9,19,59,13
+2010,8,13,70,9
+2011,7,15,66,12
+2012,6,14,67,13
+2013,12,19,58,11
+2015,20,27,37,15
+2017,20,26,41,13
+2019,14,23,50,13
+2021,9,20,60,11
+2024,16,18,57,9
+EUSUPP: Support of Georgia's membership in EU
+"Question text: Using a scale of 1 to 5, where code 1 means no support and code 5 means your full support, to what extent would you support Georgia's membership in the European Union?",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Don't support,Equally support and don't support,Support,DK/RA
+2011,5,13,69,12
+2012,3,13,72,12
+2013,8,17,65,10
+2015,16,27,42,15
+2017,14,28,45,13
+2019,9,25,52,13
+2021,7,20,63,10
+2024,10,14,71,5
+CNTRDEM: How much of a democracy is Georgia today?
+"Question text: In your opinion, how much of a democracy is Georgia today? Is it ...",
+Time-series (%),Not a democracy,A democracy but with major problems,A democracy but with minor problems,A full democracy,DK/RA
+2011,11,27,42,8,13
+2012,7,41,31,7,13
+2013,11,44,28,4,12
+2015,15,46,20,3,16
+2017,13,44,26,5,12
+2019,14,48,24,4,10
+2021,16,46,26,4,8
+2024,14,42,25,9,10
+ELCOND: Fairness of the most recent elections
+"Question text: Would you say that the last national elections were conducted completely fairly, to some extent fairly, or not at all fairly?",
+Time-series (%),Not at all fairly,To some extent fairly,Completely fairly,DK/RA
+2008,15,50,14,21
+2009,15,35,18,32
+2010,10,37,25,28
+2011,10,30,24,37
+2012,1,32,56,11
+2013,4,41,38,17
+2015,9,30,37,24
+2017,15,36,28,22
+2019,31,34,16,19
+2021,26,34,23,17
+TRUSTUN: Trust towards UN
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - United Nations",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,12,22,49,18
+2009,10,29,38,23
+2010,10,25,44,21
+2011,11,24,42,23
+2012,7,29,41,24
+2013,14,38,30,17
+2015,18,38,24,20
+2017,19,37,27,17
+2019,21,32,30,17
+2021,17,35,32,16
+2024,22,27,35,16
+TRUSTEU: Trust towards EU
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - European Union",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,10,20,54,16
+2009,9,27,43,22
+2010,10,25,44,21
+2011,10,23,45,22
+2012,6,28,42,23
+2013,13,38,33,15
+2015,20,36,27,18
+2017,18,36,33,13
+2019,20,31,37,12
+2021,16,33,41,10
+2024,18,18,58,6
+TRUPPS: Trust towards political parties
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Political parties",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2012,22,57,21,0
+2013,30,55,15,0
+2015,41,40,8,10
+2017,40,43,10,8
+2019,50,35,7,8
+2021,44,42,9,5
+2024,46,35,12,7
+TRURELI: Trust towards Religious institutions
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Religious institutions to which respondent belongs",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,3,6,87,4
+2009,2,7,84,6
+2010,3,7,85,4
+2011,2,6,88,4
+2012,2,8,86,5
+2013,2,13,81,4
+2015,3,14,80,3
+2017,7,19,70,3
+2019,8,19,71,2
+2021,9,26,63,2
+2024,10,14,73,2
+TRUPRES: Trust towards President
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - President",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,22,20,51,7
+2009,19,27,48,7
+2010,14,25,56,5
+2011,13,22,58,7
+2012,32,30,27,11
+2013,37,32,23,8
+2015,23,36,33,9
+2017,24,33,38,5
+2019,49,27,17,7
+2021,42,37,15,6
+2024,40,27,26,7
+TRUPOLI: Trust towards Police
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Police",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,21,19,53,7
+2009,13,30,51,6
+2010,8,22,65,4
+2011,8,20,67,5
+2012,11,32,50,8
+2013,8,30,58,4
+2015,15,35,44,6
+2017,16,30,51,3
+2019,18,32,48,3
+2021,21,34,41,3
+2024,21,22,54,3
+TRUPARL: Trust towards Parliament
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Parliament",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,30,26,35,9
+2009,26,35,30,8
+2010,19,33,39,10
+2011,19,32,37,13
+2012,8,31,44,16
+2013,18,45,28,8
+2015,36,39,16,9
+2017,36,36,22,6
+2019,46,32,15,6
+2021,43,37,16,4
+2024,41,31,22,6
+TRUOMB: Trust towards Ombudsman
+"Question text: I will read out a list of social institutions and political unions. Please assess your level of trust toward each of them on a 5-point scale, where code 1 means 'Fully distrust', and code 5 means 'Fully trust'. First, please tell me how much do you trust or distrust - Ombudsman",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Distrust,Neither trust nor distrust,Trust,DK/RA
+2008,7,24,57,11
+2009,8,28,40,23
+2010,8,27,41,24
+2011,8,28,34,31
+2012,5,28,33,34
+2013,10,41,28,21
+2015,15,41,26,18
+2017,17,37,30,16
+2019,18,35,29,19
+2021,19,38,31,12
+2024,28,29,26,18
+HLTHRAT: How would you rate your health?
+"Question text: Overall, how would you rate your health? Would you describe it as ...",
+Note: The variable was recoded from 5-point scale into 3-point scale.
+Time-series (%),Poor,Fair,Good,DK/RA
+2008,22,43,35,0
+2009,21,41,38,0
+2010,20,43,36,0
+2011,20,38,42,0
+2012,22,43,35,0
+2013,20,39,41,0
+2015,22,48,30,0
+2017,20,48,32,0
+2019,18,47,35,0
+2024,17,44,39,1
+EMIGRAT: Would you leave Georgia forever?
+"Question text: If you had a chance, would you leave Georgia forever to live somewhere else?",
+Time-series (%),Yes,No,DK/RA
+2008,8,89,3
+2009,11,87,3
+2010,7,90,2
+2011,6,92,2
+2012,6,92,2
+2013,7,91,2
+2015,11,87,2
+2017,8,90,2
+2019,10,88,2
+2021,12,85,3
+2024,9,89,2
+MIGSHRT: Would you leave Georgia for a certain period?
+"Question text: If you had a chance, would you leave Georgia for a certain period of time to live somewhere else?",
+Time-series (%),Yes,No,DK/RA
+2008,50,46,3
+2009,45,52,3
+2010,47,51,2
+2011,47,50,3
+2012,42,54,4
+2013,44,54,3
+2015,51,48,2
+2017,55,44,1
+2019,50,49,2
+2021,52,46,1
+2024,45,53,3
