@@ -1,3 +1,7 @@
-# AIR-QUALITY-PROJECT
+# IPAC
+### Data Team
+### Air Quality Project
 
-Researching the effects of air pollution on public opinion in the South Caucasus Nation of Georgia (Sakartvelo).
+**NOTES:**
+- track air quality data from 6, 12, 24, 48, 72 hours before interview start time
+- Filter datasets for Tbilisi only
