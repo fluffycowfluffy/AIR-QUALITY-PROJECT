@@ -71,3 +71,13 @@ def strip_html(html_table:list)->list:
     return html_table
 
 run_scraper()
+# Clean Hourly_Air_Quality_Data_Tbilisi_2017
+air_data = pd.read_csv('Hourly_Air_Quality_Data_Tbilisi_2017.csv', index_col=0)
+air_data.replace('*', np.nan, inplace=True)
+air_data[['NO2', 'SO2','PM2.5','PM10','O3','CO','SO2_Daily','PM2.5_Daily','PM10_Daily','O3_Daily','CO_Daily']] = air_data[['NO2', 'SO2','PM2.5','PM10','O3','CO','SO2_Daily','PM2.5_Daily','PM10_Daily','O3_Daily','CO_Daily']].astype(float)
+
+# Create Average Air Quality Dataframe
+average_df = air_data.groupby(['row_id', 'date', 'hour'])[['NO2', 'SO2','PM2.5','PM10','O3','CO','SO2_Daily','PM2.5_Daily','PM10_Daily','O3_Daily','CO_Daily']].mean().reset_index()
+
+# Save as csv
+average_df.to_csv('Average_Hourly_Air_Quality_Tbilisi_2017.csv')
