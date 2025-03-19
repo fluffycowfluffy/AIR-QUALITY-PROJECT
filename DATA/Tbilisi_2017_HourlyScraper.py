@@ -70,7 +70,9 @@ def strip_html(html_table:list)->list:
         html_table[i] = html_table[i].get_text()
     return html_table
 
+# Run Scraper
 run_scraper()
+
 # Clean Hourly_Air_Quality_Data_Tbilisi_2017
 air_data = pd.read_csv('Hourly_Air_Quality_Data_Tbilisi_2017.csv', index_col=0)
 air_data.replace('*', np.nan, inplace=True)
@@ -81,3 +83,7 @@ average_df = air_data.groupby(['row_id', 'date', 'hour'])[['NO2', 'SO2','PM2.5',
 
 # Save as csv
 average_df.to_csv('Average_Hourly_Air_Quality_Tbilisi_2017.csv')
+
+# Compile with demographic data
+complete_df = interview_data.merge(average_df, left_on=interview_data.index, right_on='row_id').drop(columns=['row_id', 'date','INT_START'])
+complete_df.to_csv('Complete_Average_Hourly_Tbilisi_2017.csv')
