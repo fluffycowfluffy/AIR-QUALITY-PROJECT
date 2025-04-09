@@ -63,11 +63,15 @@ air_data$TRUOMB <- trust_factors(air_data$TRUOMB)
 air_data$TRUSTEU <- trust_factors(air_data$TRUSTEU)
 air_data$TRUSTUN <- trust_factors(air_data$TRUSTUN)
 
+#### Create Summary Statistics Tables####
+numerical_table <- stargazer(air_data, type = 'html')
+
+
 #### Prepare Individual dataframes for regression ####
 Courts_df <- subset(air_data, TRUCRTS != 'No Answer')
 Courts_df$TRUCRTS <- droplevels(Courts_df$TRUCRTS)
 Parl_df <- subset(air_data, TRUPARL != 'No Answer')
-Parl_df$TRUPARL <- droplevels(Courts_df$TRUPARL)
+Parl_df$TRUPARL <- droplevels(Parl_df$TRUPARL)
 Exec_df <- subset(air_data, TRUEXEC != 'No Answer')
 Exec_df$TRUEXEC <- droplevels(Exec_df$TRUEXEC)
 Local_df <- subset(air_data, TRULOCG != 'No Answer')
@@ -87,20 +91,6 @@ EU_df$TRUSTEU <- droplevels(EU_df$TRUSTEU)
 UN_df <- subset(air_data, TRUSTUN != 'No Answer')
 UN_df$TRUSTUN <- droplevels(UN_df$TRUSTUN)
 
-#### Get Summary Table #####
-
-numerical_table <- stargazer(air_data, type = 'html')
-
-trust_table1 <- stargazer(air_data[c("TRUCRTS", "TRUPARL", "TRUEXEC", "TRULOCG",
-                                    "TRUHLTH")], type='html')
-
-trust_table2 <- stargazer(air_data[c("TRUNGOS","TRUMEDI","TRURELI", "TRUOMB")], 
-                                                type='html')
-                                     
-trust_table3 <- stargazer(air_data[c("TRUSTEU", "TRUSTUN")], type='html')
-
-stargazer(air_data[c("TRUCRTS", "TRUPARL", "TRUEXEC", "TRULOCG",
-                     "TRUHLTH")], type='html')
 
 #### PM2.5 Regressions ####
 modelCourts <- polr(TRUCRTS
