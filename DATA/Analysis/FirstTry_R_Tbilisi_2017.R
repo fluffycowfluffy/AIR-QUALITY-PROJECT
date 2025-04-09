@@ -1,5 +1,5 @@
 air_data = read.csv('Desktop/IPAC/Complete_Average_Hourly_Tbilisi_2017.csv')
-original_data = read_dta('Desktop/IPAC/CB_2017_Georgia_public_17.11.17.dta')
+original_data = read_dta('Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Raw Data/Caucus Barometer/CB_2017_Georgia_public_17.11.17.dta')
 original_data$SUBSTRATUM
 
 library(haven)
