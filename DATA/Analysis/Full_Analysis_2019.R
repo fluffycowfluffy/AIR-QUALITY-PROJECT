@@ -1,8 +1,10 @@
 library(MASS)
 library(stargazer)
 
+
 air_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/Compiled_Data_2019_withHourly.csv')
-original_data = read_dta('Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Raw Data/Caucus Barometer/CB_2017_Georgia_public_17.11.17.dta')
+#original_data = read_dta('Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Raw Data/Caucus Barometer/CB_2017_Georgia_public_17.11.17.dta')
+score_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/compiled_data_2019_withTrustScore.csv')
 
 #### Set Demographic Factors ####
 air_data$RESPSEX <- droplevels(factor(air_data$RESPSEX,
@@ -36,6 +38,110 @@ air_data$SUBSTRATUM <- droplevels(factor(air_data$SUBSTRATUM,
                                       labels = c("No Answer",
                                                  "Tbilisi", 
                                                  "Batumi")))
+air_data$RESPSEX <- droplevels(factor(air_data$RESPSEX,
+                                      levels = c(-1, 1, 2),
+                                      labels = c("No Answer", "Male", "Female")))
+
+
+score_data$RESPEMP <- droplevels(factor(score_data$RESPEMP,
+                                      levels = c(-1, 0, 1),
+                                      labels = c("No Answer", "No", "Yes")))
+
+score_data$RESPPOB <- droplevels(factor(score_data$RESPPOB,
+                                      levels = c(-1, 1,2,3,4,5),
+                                      labels = c("No answer",
+                                                 "In this settlement", 
+                                                 "In another settlement of the same region of the country",
+                                                 "In a settlement in another region of the country", 
+                                                 "Outside the country, but in the FSU",
+                                                 "Outside the FSU")))
+
+score_data$RESPMAR <- droplevels(factor(score_data$RESPMAR,
+                                      levels = c(-1, 1, 2, 5, 6, 8),
+                                      labels = c("No Answer",
+                                                 "Never married", 
+                                                 "Married - Combined",
+                                                 "Cohabiting", 
+                                                 "Divorced, Separated", 
+                                                 "Widow, Widower")))
+score_data$SUBSTRATUM <- droplevels(factor(score_data$SUBSTRATUM,
+                                         levels = c(-1, 1, 9),
+                                         labels = c("No Answer",
+                                                    "Tbilisi", 
+                                                    "Batumi")))
+
+
+####Trust Score ####
+modelScorePM2.5<- lm(TRUST_SCORE
+                     ~ RESPAGE + 
+                       #RESPSEX + RESPEMP + RESPPOB + RESPMAR + 
+                       SUBSTRATUM +
+                       PM2.5_hour# + PM2.5_lag1 + PM2.5_lag2
+                     ,
+                     data = score_data)
+summary(modelScorePM2.5)
+#summary(stepAIC(modelScorePM2.5))
+
+
+modelScorePM10<- lm(TRUST_SCORE
+                    ~ RESPAGE + 
+                      #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                      SUBSTRATUM +
+                      PM10_hour# + PM10_lag1 + PM10_lag2
+                    ,
+                    data = score_data)
+summary(modelScorePM10)
+#summary(stepAIC(modelScorePM10))
+
+modelScoreO3<- lm(TRUST_SCORE
+                  ~ RESPAGE + 
+                    #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    O3_hour# + O.sub.3_lag1 + O.sub.3_lag2
+                  ,
+                  data = score_data)
+summary(modelScoreO3)
+#summary(stepAIC(modelScoreO3))
+
+modelScoreCO<- lm(TRUST_SCORE
+                  ~ RESPAGE + 
+                    #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    CO_hour# + CO_lag1 + CO_lag2
+                  ,
+                  data = score_data)
+summary(modelScoreCO)
+#summary(stepAIC(modelScoreCO))
+
+modelScoreNO2<- lm(TRUST_SCORE
+                   ~ RESPAGE +
+                     #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     NO2_hour# + NO.sub.2_lag1 + NO.sub.2_lag2
+                   ,
+                   data = score_data)
+summary(modelScoreNO2)
+#summary(stepAIC(modelScoreNO2))
+
+modelScoreSO2<- lm(TRUST_SCORE
+                   ~ RESPAGE + 
+                     #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     SO2_hour# + SO.sub.2_lag1 + SO.sub.2_lag2
+                   ,
+                   data = score_data)
+summary(modelScoreSO2)
+#summary(stepAIC(modelScoreSO2))
+
+m1 <- modelScorePM2.5
+m2 <- modelScorePM10
+m3 <- modelScoreO3
+m4 <- modelScoreCO
+m5 <- modelScoreNO2
+m6 <- modelScoreSO2
+
+
+stargazer(m1, m2, m3, m4, m5, m6, type='html')
 
 #### Set Trust Factors ####
 trust_factors <- function(column){
@@ -62,6 +168,11 @@ air_data$TRURELI <- trust_factors(air_data$TRURELI)
 air_data$TRUOMB <- trust_factors(air_data$TRUOMB)
 air_data$TRUSTEU <- trust_factors(air_data$TRUSTEU)
 air_data$TRUSTUN <- trust_factors(air_data$TRUSTUN)
+
+summary(air_data$TRUST_SCORE)
+
+install.packages("olsrr")
+library("olsrr")
 
 #### Create Summary Statistics Tables####
 numerical_table <- stargazer(air_data, type = 'html')
@@ -139,6 +250,7 @@ modelLocal <- polr(TRULOCG
                      #CO_lag1 + CO_lag2 + CO_lag3 + CO_lag4 + CO_lag5 
                    ,
                   data = Local_df, Hess=TRUE)
+#summary(modelLocal)
 
 modelHealth <- polr(TRUHLTH
                   ~ RESPAGE + RESPSEX + RESPEMP + RESPPOB +RESPMAR + SUBSTRATUM +
@@ -208,7 +320,7 @@ PM2.5_table <- stargazer(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, title="PM
 #### PM10 Regressions ####
 modelCourts <- polr(TRUCRTS
                     ~ RESPAGE + RESPSEX + RESPEMP + RESPPOB +RESPMAR + SUBSTRATUM +
-                      PM10_hour + PM10_lag1 + PM10_lag2,
+                      PM10_hour# + PM10_lag1 + PM10_lag2,
                     data = Courts_df, Hess=TRUE)
 #summary(modelCourts)
 #modelCourts_parsed = step(modelCourts)
