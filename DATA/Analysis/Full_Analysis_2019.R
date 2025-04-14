@@ -1,10 +1,13 @@
 library(MASS)
 library(stargazer)
-
+library("olsrr")
 
 air_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/Compiled_Data_2019_withHourly.csv')
 #original_data = read_dta('Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Raw Data/Caucus Barometer/CB_2017_Georgia_public_17.11.17.dta')
 score_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/compiled_data_2019_withTrustScore.csv')
+
+
+table(air_data$RESPPOB)
 
 #### Set Demographic Factors ####
 air_data$RESPSEX <- droplevels(factor(air_data$RESPSEX,
@@ -171,8 +174,6 @@ air_data$TRUSTUN <- trust_factors(air_data$TRUSTUN)
 
 summary(air_data$TRUST_SCORE)
 
-install.packages("olsrr")
-library("olsrr")
 
 #### Create Summary Statistics Tables####
 numerical_table <- stargazer(air_data, type = 'html')
