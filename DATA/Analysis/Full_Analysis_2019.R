@@ -5,7 +5,15 @@ library("olsrr")
 air_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/Compiled_Data_2019_withHourly.csv')
 #original_data = read_dta('Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Raw Data/Caucus Barometer/CB_2017_Georgia_public_17.11.17.dta')
 score_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/compiled_data_2019_withTrustScore.csv')
+score_data<-na.omit(score_data)
 
+
+score_data$PC1_ProGeorgia
+
+score_data$PC1_ProGeorgia
+
+
+table(score_data$RESPMAR)
 
 table(air_data$RESPPOB)
 
@@ -20,13 +28,10 @@ air_data$RESPEMP <- droplevels(factor(air_data$RESPEMP,
                                  labels = c("No Answer", "No", "Yes")))
 
 air_data$RESPPOB <- droplevels(factor(air_data$RESPPOB,
-                                 levels = c(-1, 1,2,3,4,5),
+                                 levels = c(-1, 1, 2),
                                  labels = c("No answer",
                                             "In this settlement", 
-                                            "In another settlement of the same region of the country",
-                                            "In a settlement in another region of the country", 
-                                            "Outside the country, but in the FSU",
-                                            "Outside the FSU")))
+                                            "In another settlement")))
 
 air_data$RESPMAR <- droplevels(factor(air_data$RESPMAR,
                                  levels = c(-1, 1, 2, 5, 6, 8),
@@ -51,13 +56,10 @@ score_data$RESPEMP <- droplevels(factor(score_data$RESPEMP,
                                       labels = c("No Answer", "No", "Yes")))
 
 score_data$RESPPOB <- droplevels(factor(score_data$RESPPOB,
-                                      levels = c(-1, 1,2,3,4,5),
+                                      levels = c(-1, 1, 2),
                                       labels = c("No answer",
                                                  "In this settlement", 
-                                                 "In another settlement of the same region of the country",
-                                                 "In a settlement in another region of the country", 
-                                                 "Outside the country, but in the FSU",
-                                                 "Outside the FSU")))
+                                                 "In another settlement")))
 
 score_data$RESPMAR <- droplevels(factor(score_data$RESPMAR,
                                       levels = c(-1, 1, 2, 5, 6, 8),
@@ -75,9 +77,129 @@ score_data$SUBSTRATUM <- droplevels(factor(score_data$SUBSTRATUM,
 
 
 ####Trust Score ####
-modelScorePM2.5<- lm(TRUST_SCORE
+modelScorePM2.5<- lm(TrustScore
                      ~ RESPAGE + 
                        #RESPSEX + RESPEMP + RESPPOB + RESPMAR + 
+                       SUBSTRATUM +
+                       PM2.5_hour# + PM2.5_lag1 + PM2.5_lag2
+                     ,
+                     data = score_data)
+modelScorePM2.5_complete <- lm(TrustScore
+                     ~ RESPAGE + 
+                       RESPSEX + RESPEMP + RESPPOB + RESPMAR + 
+                       SUBSTRATUM +
+                       PM2.5_hour + PM2.5_lag1 + PM2.5_lag2
+                     ,
+                     data = score_data)
+summary(modelScorePM2.5)
+
+
+modelScorePM10<- lm(TrustScore
+                    ~ RESPAGE + 
+                      #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                      SUBSTRATUM +
+                      PM10_hour# + PM10_lag1 + PM10_lag2
+                    ,
+                    data = score_data)
+modelScorePM10_complete<- lm(TrustScore
+                    ~ RESPAGE + 
+                      RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                      SUBSTRATUM +
+                      PM10_hour + PM10_lag1 + PM10_lag2
+                    ,
+                    data = score_data)
+summary(modelScorePM10)
+#summary(stepAIC(modelScorePM10))
+
+modelScoreO3<- lm(TrustScore
+                  ~ RESPAGE + 
+                    #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    O3_hour# + O.sub.3_lag1 + O.sub.3_lag2
+                  ,
+                  data = score_data)
+modelScoreO3_complete<- lm(TrustScore
+                  ~ RESPAGE + 
+                    RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    O3_hour + O.sub.3_lag1 + O.sub.3_lag2
+                  ,
+                  data = score_data)
+summary(modelScoreO3)
+#summary(stepAIC(modelScoreO3))
+
+modelScoreCO<- lm(TrustScore
+                  ~ RESPAGE + 
+                    #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    CO_hour# + CO_lag1 + CO_lag2
+                  ,
+                  data = score_data)
+modelScoreCO_complete<- lm(TrustScore
+                  ~ RESPAGE + 
+                    RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    CO_hour + CO_lag1 + CO_lag2
+                  ,
+                  data = score_data)
+summary(modelScoreCO)
+#summary(stepAIC(modelScoreCO))
+
+modelScoreNO2<- lm(TrustScore
+                   ~ RESPAGE +
+                     #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     NO2_hour# + NO.sub.2_lag1 + NO.sub.2_lag2
+                   ,
+                   data = score_data)
+modelScoreNO2_complete<- lm(TrustScore
+                   ~ RESPAGE +
+                     RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     NO2_hour + NO.sub.2_lag1 + NO.sub.2_lag2
+                   ,
+                   data = score_data)
+summary(modelScoreNO2)
+#summary(stepAIC(modelScoreNO2))
+
+modelScoreSO2<- lm(TrustScore
+                   ~ RESPAGE + 
+                     #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     SO2_hour# + SO.sub.2_lag1 + SO.sub.2_lag2
+                   ,
+                   data = score_data)
+modelScoreSO2_complete<- lm(TrustScore
+                   ~ RESPAGE + 
+                     RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     SO2_hour + SO.sub.2_lag1 + SO.sub.2_lag2
+                   ,
+                   data = score_data)
+summary(modelScoreSO2)
+#summary(stepAIC(modelScoreSO2))
+
+m1 <- modelScorePM2.5
+m2 <- modelScorePM10
+m3 <- modelScoreO3
+m4 <- modelScoreCO
+m5 <- modelScoreNO2
+m6 <- modelScoreSO2
+
+m7 <- modelScorePM2.5_complete
+m8 <- modelScorePM10_complete
+m9 <- modelScoreO3_complete
+m10 <- modelScoreCO_complete
+m11 <- modelScoreNO2_complete
+m12 <- modelScoreSO2_complete
+
+stargazer(m1, m2, m3, m4, m5, m6, type='html')
+stargazer(m7, m8, m9, m10, m11, m12, type='html')
+
+#### PC Pro Georgia ####
+modelScorePM2.5<- lm(PC1_ProGeorgia
+                     ~ RESPAGE + 
+                       RESPSEX + RESPEMP + RESPPOB + RESPMAR + 
                        SUBSTRATUM +
                        PM2.5_hour# + PM2.5_lag1 + PM2.5_lag2
                      ,
@@ -86,9 +208,9 @@ summary(modelScorePM2.5)
 #summary(stepAIC(modelScorePM2.5))
 
 
-modelScorePM10<- lm(TRUST_SCORE
+modelScorePM10<- lm(PC1_ProGeorgia
                     ~ RESPAGE + 
-                      #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                      RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
                       SUBSTRATUM +
                       PM10_hour# + PM10_lag1 + PM10_lag2
                     ,
@@ -96,9 +218,9 @@ modelScorePM10<- lm(TRUST_SCORE
 summary(modelScorePM10)
 #summary(stepAIC(modelScorePM10))
 
-modelScoreO3<- lm(TRUST_SCORE
+modelScoreO3<- lm(PC1_ProGeorgia
                   ~ RESPAGE + 
-                    #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
                     SUBSTRATUM +
                     O3_hour# + O.sub.3_lag1 + O.sub.3_lag2
                   ,
@@ -106,9 +228,9 @@ modelScoreO3<- lm(TRUST_SCORE
 summary(modelScoreO3)
 #summary(stepAIC(modelScoreO3))
 
-modelScoreCO<- lm(TRUST_SCORE
+modelScoreCO<- lm(PC1_ProGeorgia
                   ~ RESPAGE + 
-                    #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
                     SUBSTRATUM +
                     CO_hour# + CO_lag1 + CO_lag2
                   ,
@@ -116,9 +238,9 @@ modelScoreCO<- lm(TRUST_SCORE
 summary(modelScoreCO)
 #summary(stepAIC(modelScoreCO))
 
-modelScoreNO2<- lm(TRUST_SCORE
+modelScoreNO2<- lm(PC1_ProGeorgia
                    ~ RESPAGE +
-                     #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
                      SUBSTRATUM +
                      NO2_hour# + NO.sub.2_lag1 + NO.sub.2_lag2
                    ,
@@ -126,9 +248,9 @@ modelScoreNO2<- lm(TRUST_SCORE
 summary(modelScoreNO2)
 #summary(stepAIC(modelScoreNO2))
 
-modelScoreSO2<- lm(TRUST_SCORE
+modelScoreSO2<- lm(PC1_ProGeorgia
                    ~ RESPAGE + 
-                     #RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
                      SUBSTRATUM +
                      SO2_hour# + SO.sub.2_lag1 + SO.sub.2_lag2
                    ,
@@ -145,6 +267,80 @@ m6 <- modelScoreSO2
 
 
 stargazer(m1, m2, m3, m4, m5, m6, type='html')
+
+#### PC Pro West ####
+modelScorePM2.5<- lm(PC2_ProWest
+                     ~ RESPAGE + 
+                       RESPSEX + RESPEMP + RESPPOB + RESPMAR + 
+                       SUBSTRATUM +
+                       PM2.5_hour# + PM2.5_lag1 + PM2.5_lag2
+                     ,
+                     data = score_data)
+summary(modelScorePM2.5)
+#summary(stepAIC(modelScorePM2.5))
+
+
+modelScorePM10<- lm(PC2_ProWest
+                    ~ RESPAGE + 
+                      RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                      SUBSTRATUM +
+                      PM10_hour# + PM10_lag1 + PM10_lag2
+                    ,
+                    data = score_data)
+summary(modelScorePM10)
+#summary(stepAIC(modelScorePM10))
+
+modelScoreO3<- lm(PC2_ProWest
+                  ~ RESPAGE + 
+                    RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    O3_hour# + O.sub.3_lag1 + O.sub.3_lag2
+                  ,
+                  data = score_data)
+summary(modelScoreO3)
+#summary(stepAIC(modelScoreO3))
+
+modelScoreCO<- lm(PC2_ProWest
+                  ~ RESPAGE + 
+                    RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                    SUBSTRATUM +
+                    CO_hour# + CO_lag1 + CO_lag2
+                  ,
+                  data = score_data)
+summary(modelScoreCO)
+#summary(stepAIC(modelScoreCO))
+
+modelScoreNO2<- lm(PC2_ProWest
+                   ~ RESPAGE +
+                     RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     NO2_hour# + NO.sub.2_lag1 + NO.sub.2_lag2
+                   ,
+                   data = score_data)
+summary(modelScoreNO2)
+#summary(stepAIC(modelScoreNO2))
+
+modelScoreSO2<- lm(PC2_ProWest
+                   ~ RESPAGE + 
+                     RESPSEX + RESPEMP + RESPPOB +RESPMAR + 
+                     SUBSTRATUM +
+                     SO2_hour# + SO.sub.2_lag1 + SO.sub.2_lag2
+                   ,
+                   data = score_data)
+summary(modelScoreSO2)
+#summary(stepAIC(modelScoreSO2))
+
+m1 <- modelScorePM2.5
+m2 <- modelScorePM10
+m3 <- modelScoreO3
+m4 <- modelScoreCO
+m5 <- modelScoreNO2
+m6 <- modelScoreSO2
+
+
+stargazer(m1, m2, m3, m4, m5, m6, type='html')
+
+
 
 #### Set Trust Factors ####
 trust_factors <- function(column){
