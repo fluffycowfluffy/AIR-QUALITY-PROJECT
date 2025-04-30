@@ -2,8 +2,8 @@ library(MASS)
 library(stargazer)
 library("olsrr")
 
-air_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/Compiled_Data_2019_withHourly.csv')
 #original_data = read_dta('Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Raw Data/Caucus Barometer/CB_2017_Georgia_public_17.11.17.dta')
+air_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/Compiled_Data_2019_withHourly.csv')
 score_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/compiled_data_2019_withTrustScore.csv')
 score_data<-na.omit(score_data)
 
@@ -368,14 +368,17 @@ air_data$TRUOMB <- trust_factors(air_data$TRUOMB)
 air_data$TRUSTEU <- trust_factors(air_data$TRUSTEU)
 air_data$TRUSTUN <- trust_factors(air_data$TRUSTUN)
 
-summary(air_data$TRUST_SCORE)
-
+air_data$TRUCRTS
 
 #### Create Summary Statistics Tables####
 numerical_table <- stargazer(air_data, type = 'html')
 
 
 #### Prepare Individual dataframes for regression ####
+
+
+
+
 Courts_df <- subset(air_data, TRUCRTS != 'No Answer')
 Courts_df$TRUCRTS <- droplevels(Courts_df$TRUCRTS)
 Parl_df <- subset(air_data, TRUPARL != 'No Answer')
