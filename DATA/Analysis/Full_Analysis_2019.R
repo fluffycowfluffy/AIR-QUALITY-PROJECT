@@ -3,19 +3,9 @@ library(stargazer)
 library("olsrr")
 
 #original_data = read_dta('Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Raw Data/Caucus Barometer/CB_2017_Georgia_public_17.11.17.dta')
-air_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/Compiled_Data_2019_withHourly.csv')
+air_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/compiled_data_2019_withTrustScore.csv')
 score_data = read.csv('/Users/nicorapallo/Desktop/GitHub/AIR-QUALITY-PROJECT/DATA/Filtered Data/Complied Data/compiled_data_2019_withTrustScore.csv')
-score_data<-na.omit(score_data)
-
-
-score_data$PC1_ProGeorgia
-
-score_data$PC1_ProGeorgia
-
-
-table(score_data$RESPMAR)
-
-table(air_data$RESPPOB)
+score_data <- na.omit(score_data)
 
 #### Set Demographic Factors ####
 air_data$RESPSEX <- droplevels(factor(air_data$RESPSEX,
@@ -41,12 +31,14 @@ air_data$RESPMAR <- droplevels(factor(air_data$RESPMAR,
                                             "Cohabiting", 
                                             "Divorced, Separated", 
                                             "Widow, Widower")))
+
 air_data$SUBSTRATUM <- droplevels(factor(air_data$SUBSTRATUM,
                                       levels = c(-1, 1, 9),
                                       labels = c("No Answer",
                                                  "Tbilisi", 
                                                  "Batumi")))
-air_data$RESPSEX <- droplevels(factor(air_data$RESPSEX,
+
+score_data$RESPSEX <- droplevels(factor(score_data$RESPSEX,
                                       levels = c(-1, 1, 2),
                                       labels = c("No Answer", "Male", "Female")))
 
@@ -520,7 +512,7 @@ PM2.5_table <- stargazer(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, title="PM
 #### PM10 Regressions ####
 modelCourts <- polr(TRUCRTS
                     ~ RESPAGE + RESPSEX + RESPEMP + RESPPOB +RESPMAR + SUBSTRATUM +
-                      PM10_hour# + PM10_lag1 + PM10_lag2,
+                      PM10_hour + PM10_lag1 + PM10_lag2,
                     data = Courts_df, Hess=TRUE)
 #summary(modelCourts)
 #modelCourts_parsed = step(modelCourts)
@@ -941,6 +933,14 @@ m10 <- modelEU
 m11 <- modelUN
 
 SO2_table <- stargazer(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, title="SO<sub>2</sub> Regressions", type='html')
+
+
+
+
+
+
+
+
 
 
 
